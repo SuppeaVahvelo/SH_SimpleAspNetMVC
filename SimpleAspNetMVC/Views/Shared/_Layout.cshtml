@@ -8,34 +8,75 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
+
 <body>
+
+
     <div class="bodywrapper">
+
         <div class="containerwrapper">
+
             <div class="container">
+
                 <nav class="navbar navbar-expand-md navbar-toggleable-sm">
-                    <div class="container">
-                        <h1 style="color:white; font-weight:100;">Proto Zombie Enterprises inc.</h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="maintitleh1" style="font-weight:Bold;">Proto Zombie Enterprises inc.</h1>
+                        </div>
                     </div>
-                </nav>
-                <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
-                    <div class="container">
-                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                            <ul class="navbar-nav flex-grow-1">
-                                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            </ul>
-                            @Html.Partial("_LoginPartial")
+                </nav>         
+                <nav class="navbar navbar-expand-md navbar-toggleable-sm">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.Partial("_TimerPartial")
                         </div>
                     </div>
                 </nav>
+
+                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+                        <div class="container">
+                            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                                <ul class="navbar-nav flex-grow-1">
+                                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                </ul>
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>
+                    </nav>
+
             </div>
+
             <hr />
+                    <script>
+            window.onload = function () {
+                var startTime = new Date().getTime();
+                var stopwatchElement = document.getElementById("stopwatch");
+
+                function updateTime() {
+                    var currentTime = new Date().getTime();
+                    var elapsedTime = currentTime - startTime;
+
+                    var hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+                    var minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+
+                    stopwatchElement.innerHTML =
+                        (hours < 10 ? "0" : "") + hours + ":" +
+                        (minutes < 10 ? "0" : "") + minutes + ":" +
+                        (seconds < 10 ? "0" : "") + seconds;
+                }
+
+                setInterval(updateTime, 1000);
+
+        </script>
             <div class="container body-content">
                 @RenderBody()
 
@@ -44,11 +85,14 @@
                     <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
                 </footer>
             </div>
+
         </div>
+
     </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
