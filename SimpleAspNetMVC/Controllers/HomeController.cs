@@ -8,23 +8,47 @@ namespace SimpleAspNetMVC.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
-            return View();
+            if (Request.IsAjaxRequest())
+                return PartialView("Index");
+            return View("Index");
+
         }
-        [AllowAnonymous]
+
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            if (Request.IsAjaxRequest())
+                return PartialView("About");
+            return View("About");
 
-            return View();
         }
-        [Authorize]
+
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            if (Request.IsAjaxRequest())
+                return PartialView("Contact");
+            return View("Contact");
 
-            return View();
         }
+        //public ActionResult Index()
+        //{
+        //    return PartialView("_Index");
+        //}
+        //[AllowAnonymous]
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
+
+        //    return PartialView("About");
+        //}
+
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return PartialView("Contact");
+        //}
     }
-}
+    }

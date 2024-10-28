@@ -1,98 +1,123 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+﻿
 
-</head>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
 
-<body>
+    </head>
 
+    <body>
 
-    <div class="bodywrapper">
+        <main>
 
-        <div class="containerwrapper">
+            <div class="bodywrapper">
 
-            <div class="container">
+                <div class="containerwrapper" id="1">
 
-                <nav class="navbar navbar-expand-md navbar-toggleable-sm">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="maintitleh1" style="font-weight:Bold;">Proto Zombie Enterprises inc.</h1>
-                        </div>
-                    </div>
-                </nav>         
-                <nav class="navbar navbar-expand-md navbar-toggleable-sm">
-                    <div class="row">
-                        <div class="col-md-12">
-                            @Html.Partial("_TimerPartial")
-                        </div>
-                    </div>
-                </nav>
+                    <div class="container">
+                        <button onclick="changeElementBackgroundColor('1', '#ccffcc')"></button>
 
-                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
-                        <div class="container">
-                            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                                <ul class="navbar-nav flex-grow-1">
-                                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                                </ul>
-                                @Html.Partial("_LoginPartial")
+                        <nav class="navbar navbar-expand-md navbar-toggleable-sm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="maintitleh1" style="font-weight:Bold;">Proto Zombie Enterprises inc.</h1>
+                                </div>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
+                        <nav class="navbar navbar-expand-md navbar-toggleable-sm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.Partial("_TimerPartial")
+                                </div>
+                            </div>
+                        </nav>
+                        <nav class="navbar navbar-expand-md navbar-toggleable-sm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.Partial("_TimerPartial")
+                                </div>
+                            </div>
+                        </nav>
+
+                        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+                            <div class="container">
+                                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                                    <ul class="navbar-nav flex-grow-1">
+                                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                    </ul>
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+                                <nav class="navbar navbar-expand-md navbar-toggleable-sm">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.Partial("_TimerPartial")
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+
+                    </div>
+
+                    <hr />
+
+                    <div class="container body-content" id="content-container">
+                        @RenderBody()
+
+                        <hr />
+                        <footer>
+                            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                        </footer>
+                    </div>
+
+                </div>
 
             </div>
+        </main>
 
-            <hr />
-                    <script>
-            window.onload = function () {
-                var startTime = new Date().getTime();
-                var stopwatchElement = document.getElementById("stopwatch");
 
-                function updateTime() {
-                    var currentTime = new Date().getTime();
-                    var elapsedTime = currentTime - startTime;
 
-                    var hours = Math.floor(elapsedTime / (1000 * 60 * 60));
-                    var minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 
-                    stopwatchElement.innerHTML =
-                        (hours < 10 ? "0" : "") + hours + ":" +
-                        (minutes < 10 ? "0" : "") + minutes + ":" +
-                        (seconds < 10 ? "0" : "") + seconds;
+        <script>
+            function changeElementBackgroundColor(id, color) {
+                var element = document.getElementById(id);
+                if (element) {
+                    element.style.backgroundColor = color;
                 }
+            }
 
-                setInterval(updateTime, 1000);
+            /*AJAX request for the partial view*/
 
+            $(document).ready(function () {
+                $(".nav-link").click(function (event) {
+                    event.preventDefault();
+                    var url = $(this).attr("href");
+                    $.get(url, function (response) {
+                        if ($.trim(response)) {
+                            $("#content-container").html(response);
+                        } else {
+                            window.location.href = url;
+                        }
+                    });
+                });
+            });
         </script>
-            <div class="container body-content">
-                @RenderBody()
 
-                <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                </footer>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+    </body>
 </html>

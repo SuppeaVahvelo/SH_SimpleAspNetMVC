@@ -4,7 +4,7 @@
     padding-top: 0px;
     font-family: Code;
         font-weight:normal;
-        background-color:black
+        background-color:white
             
 
 
@@ -17,7 +17,7 @@
 }
 
 .containerwrapper {
-    background-color:forestgreen;
+    background-color:lightgray;
     border-radius: 10px;
     margin-top: 15px;
     margin-left: 15px;
