@@ -1,4 +1,9 @@
-﻿@model SimpleAspNetMVC.Models.RegisterViewModel
+﻿@{
+        Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+@*@Styles.Render("~/Content/Site.css")*@
+
+@model SimpleAspNetMVC.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
