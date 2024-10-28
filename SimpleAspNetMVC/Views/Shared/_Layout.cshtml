@@ -6,6 +6,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewBag.Title - My ASP.NET Application</title>
+        <link href="~/Content/Site.css" rel="stylesheet" />
+
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
 
@@ -17,32 +19,35 @@
 
             <div class="bodywrapper">
 
-                <div class="containerwrapper" id="1">
+                <div class="containerwrapper" id="aa">
 
                     <div class="container">
-                        <button onclick="changeElementBackgroundColor('1', '#ccffcc')"></button>
+                        <nav class="navbar navbar-expand-md navbar-toggleable-sm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="Colors" style="background-color:mediumturquoise" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
+                                    <button class="Colors" style="background-color:yellow" onclick="changeElementBackgroundColor('aa', '#FFCB00')"></button>
+                                    <button class="Colors" style="background-color:lightgreen" onclick="changeElementBackgroundColor('aa', '#35CB00')"></button>
+
+                                </div>
+                            </div>
+                        </nav>
 
                         <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="maintitleh1" style="font-weight:Bold;">Proto Zombie Enterprises inc.</h1>
+                                    <h1 class="maintitleh1" style="font-weight:Bold; text-shadow:1px 1px 0px white">Proto Zombie Enterprises inc.</h1>
                                 </div>
                             </div>
                         </nav>
                         <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.Partial("_TimerPartial")
+                                    <p style="font-weight:bold">Only for licensed use.</p>
                                 </div>
                             </div>
                         </nav>
-                        <nav class="navbar navbar-expand-md navbar-toggleable-sm">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @Html.Partial("_TimerPartial")
-                                </div>
-                            </div>
-                        </nav>
+
 
                         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
                             <div class="container">
@@ -58,31 +63,38 @@
                                         <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                                     </ul>
+                                    <nav class="navbar navbar-expand-md navbar-toggleable-sm">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                @Html.Partial("TimerPartial")
+                                            </div>
+                                        </div>
+                                    </nav>
                                     @Html.Partial("_LoginPartial")
                                 </div>
-                                <nav class="navbar navbar-expand-md navbar-toggleable-sm">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            @Html.Partial("_TimerPartial")
-                                        </div>
-                                    </div>
-                                </nav>
+
                             </div>
                         </nav>
 
                     </div>
 
                     <hr />
+                    <div>
+                        <div class="container body-content" id="content-container">
+                            @RenderBody()
+                        </div>
+                        <div>
+                            <hr />
+                            <footer>
+                                <button class="btn-BW" style="background-color:mediumturquoise" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
+                                <button class="btn-BW" style="background-color:yellow" onclick="changeElementBackgroundColor('aa', '#FFCB00')"></button>
+                                <button class="btn-BW" style="background-color:lightgreen" onclick="changeElementBackgroundColor('aa', '#35CB00')"></button>
 
-                    <div class="container body-content" id="content-container">
-                        @RenderBody()
+                                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                            </footer>
+                        </div>
 
-                        <hr />
-                        <footer>
-                            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                        </footer>
                     </div>
-
                 </div>
 
             </div>

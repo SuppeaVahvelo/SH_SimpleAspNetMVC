@@ -1,4 +1,9 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
+﻿@{
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/css")
+
+@model System.Web.Mvc.HandleErrorInfo
 
 @{
     ViewBag.Title = "Locked Out";

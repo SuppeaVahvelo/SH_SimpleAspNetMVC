@@ -3,11 +3,9 @@
     margin: 10px ;
     padding-top: 0px;
     font-family: Code;
-        font-weight:normal;
-        background-color:white
+    font-weight:normal;
+    background-color:white
             
-
-
 }
 
 .bodywrapper {
@@ -37,6 +35,9 @@
 .container {
 }
 
+
+/*Type styling*/
+
 .maintitleh1{
     color:black
 }
@@ -51,6 +52,22 @@ p {
     font-size: 12px; /* or any fixed size you prefer */
 }
 
+
+/*Button styling*/
+.Colors{
+    border:hidden;
+    width:1px;
+    height:25px;
+    border-radius:0%;
+    
+}
+
+.btn-BW{
+border:1px;
+width:20px;
+height:45px;
+border-top-right-radius:50%;
+}
 
 
 

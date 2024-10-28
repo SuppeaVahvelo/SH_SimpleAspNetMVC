@@ -32,6 +32,13 @@ namespace SimpleAspNetMVC.Controllers
             return View("Contact");
 
         }
+
+        public ActionResult TimerPartial()
+        {
+            // Pass necessary data to the Timer partial view
+            return PartialView("TimerPartial");
+        }
+
         //public ActionResult Index()
         //{
         //    return PartialView("_Index");
