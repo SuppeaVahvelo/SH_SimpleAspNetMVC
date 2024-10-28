@@ -1,7 +1,7 @@
-﻿@{
+﻿@*@{
     Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
 }
-@Styles.Render("~/Content/Site.css")
+@Styles.Render("~/Content/Site.css")*@
 
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
