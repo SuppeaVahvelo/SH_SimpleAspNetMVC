@@ -1,8 +1,21 @@
 ﻿body {
+
+   background-color: white
+
+}
+
+.bodywrapper {
     padding-top: 140px;
     font-family: Code;
-   
+}
 
+.containerwrapper {
+    background-color: lightgray;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 50px
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -10,8 +23,12 @@
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    
+    font-size:12px;
+    font-family: Tahoma    
 }
+.container {
+}
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -27,8 +44,14 @@ textarea {
     max-width: 280px;
 }
 
+.navbar-dark {
+    background-color: blue;
+}
 
 
+
+
+/*Modal styling*/
 .modal {
     display: none;
     position: fixed;
