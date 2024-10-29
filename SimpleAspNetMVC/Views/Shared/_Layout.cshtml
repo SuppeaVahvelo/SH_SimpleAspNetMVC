@@ -81,10 +81,14 @@
 
                         <hr />
                         <div>
-                            <div class="container body-content" id="content-container">
-                                @RenderBody()
+                            <div id="container-container-transitioner" class="hidden">
+                                <div class="container body-content" id="content-container">
+                                    @RenderBody()
+                                </div>
                             </div>
+                            <button onclick="toggleContent()">Toggle Content</button>
                             <div>
+
                                 <hr />
                                 <footer>
                                     <button class="btn-BW" style="background-color:mediumturquoise" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
@@ -102,8 +106,6 @@
             </div>
         </main>
 
-
-
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
@@ -116,6 +118,16 @@
                 }
             }
 
+            /*Content div transition function */
+
+            function toggleContent() {
+                var content = document.getElementById("container-container-transitioner");
+                if (content.classList.contains("visible")) {
+                    content.classList.remove("visible");
+                } else {
+                    content.classList.add("visible");
+                }
+            }
             /*AJAX request for the partial view*/
 
             $(document).ready(function () {

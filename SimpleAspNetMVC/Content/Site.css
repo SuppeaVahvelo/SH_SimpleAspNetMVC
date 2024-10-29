@@ -34,7 +34,21 @@
 .container {
 }
 
-footer {
+/*Container transition*/
+
+#container-container-transitioner {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+    #container-container-transitioner.visible {
+    max-height: 500px; /* Adjust based on your content */
+}
+    
+    /*Footer*/
+
+    footer {
     justify-content: center; 
     margin-top: 15px;
     padding-left: 15px;
