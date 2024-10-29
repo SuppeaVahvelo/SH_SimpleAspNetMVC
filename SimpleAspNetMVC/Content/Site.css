@@ -14,8 +14,8 @@
 }
 
 .containerwrapper {
+
     background-color: lightgray;
-    background: linear-gradient(lightgray, white);
     border-radius: 10px;
     margin-top: 15px;
     margin-left: 15px;
@@ -33,6 +33,17 @@
 }
 .container {
 }
+
+footer {
+    justify-content: center; /* Centers horizontally */
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    font-size: 12px;
+    font-family: Tahoma
+}
+
 
 
 /*Type styling*/

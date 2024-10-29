@@ -77,24 +77,25 @@
                             </div>
                         </nav>
 
-                    </div>
 
-                    <hr />
-                    <div>
-                        <div class="container body-content" id="content-container">
-                            @RenderBody()
-                        </div>
+
+                        <hr />
                         <div>
-                            <hr />
-                            <footer>
-                                <button class="btn-BW" style="background-color:mediumturquoise" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
-                                <button class="btn-BW" style="background-color:yellow" onclick="changeElementBackgroundColor('aa', '#FFCB00')"></button>
-                                <button class="btn-BW" style="background-color:lightgreen" onclick="changeElementBackgroundColor('aa', '#35CB00')"></button>
+                            <div class="container body-content" id="content-container">
+                                @RenderBody()
+                            </div>
+                            <div>
+                                <hr />
+                                <footer>
+                                    <button class="btn-BW" style="background-color:mediumturquoise" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
+                                    <button class="btn-BW" style="background-color:yellow" onclick="changeElementBackgroundColor('aa', '#FFCB00')"></button>
+                                    <button class="btn-BW" style="background-color:lightgreen" onclick="changeElementBackgroundColor('aa', '#35CB00')"></button>
 
-                                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                            </footer>
+                                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                                </footer>
+                            </div>
+
                         </div>
-
                     </div>
                 </div>
 
