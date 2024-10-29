@@ -48,10 +48,11 @@
                             </div>
                         </nav>
 
+                        <hr />
 
                         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
                             <div class="container">
-                                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
                                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                                         aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
@@ -59,9 +60,9 @@
 
                                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                                     <ul class="navbar-nav flex-grow-1">
-                                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                        <li><div class="navbar-button">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
                                     </ul>
                                     <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                                         <div class="row">
