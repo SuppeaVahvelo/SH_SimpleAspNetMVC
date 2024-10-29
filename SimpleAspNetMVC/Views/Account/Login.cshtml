@@ -1,4 +1,8 @@
-﻿@using SimpleAspNetMVC.Models
+﻿@{
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+@*@Styles.Render("~/Content/Site.css")*@
+@using SimpleAspNetMVC.Models
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
