@@ -39,7 +39,7 @@
 #container-container-transitioner {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-out;
+    transition: max-height 0.1s ease-in;
 }
 
     #container-container-transitioner.visible {
@@ -79,14 +79,7 @@ p {
 }
 
 
-/*Button styling*/
-.Colors{
-    border:hidden;
-    width:1px;
-    height:25px;
-    border-radius:0%;
-    
-}
+/*Button/DIV button styling*/
 
 .navbar-button {
     border: solid;
@@ -123,12 +116,27 @@ p {
         color: black
     }
 
+.Colors {
+    border: hidden;
+    width: 1px;
+    height: 25px;
+    border-radius: 0%;
+}
 
     .btn-BW{
 border:1px;
 width:20px;
 height:45px;
 border-top-right-radius:50%;
+}
+#btnFirst {
+    background-color: mediumturquoise;
+}
+#btnSecond {
+    background-color: yellow;
+}
+#btnThird {
+    background-color: lightgreen;
 }
 
 
