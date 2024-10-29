@@ -81,15 +81,19 @@
 
                         <hr />
                         <div>
-                            <div class="container body-content" id="content-container">
-                                @RenderBody()
+                            <div id="container-container-transitioner" class="hidden">
+                                <div class="container body-content" id="content-container">
+                                    @RenderBody()
+                                </div>
                             </div>
+                            <button onclick="toggleContent()">Toggle Content</button>
                             <div>
+
                                 <hr />
                                 <footer>
-                                    <button class="btn-BW" style="background-color:mediumturquoise" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
-                                    <button class="btn-BW" style="background-color:yellow" onclick="changeElementBackgroundColor('aa', '#FFCB00')"></button>
-                                    <button class="btn-BW" style="background-color:lightgreen" onclick="changeElementBackgroundColor('aa', '#35CB00')"></button>
+                                    <button class="btn-BW" id="btnFirst" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
+                                    <button class="btn-BW" id="btnSecond" onclick="changeElementBackgroundColor('aa', '#FFCB00')"></button>
+                                    <button class="btn-BW" id="btnThird" onclick="changeElementBackgroundColor('aa', '#35CB00')"></button>
 
                                     <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
                                 </footer>
@@ -101,8 +105,6 @@
 
             </div>
         </main>
-
-
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
@@ -116,6 +118,16 @@
                 }
             }
 
+            /*Content div transition function */
+
+            function toggleContent() {
+                var content = document.getElementById("container-container-transitioner");
+                if (content.classList.contains("visible")) {
+                    content.classList.remove("visible");
+                } else {
+                    content.classList.add("visible");
+                }
+            }
             /*AJAX request for the partial view*/
 
             $(document).ready(function () {
