@@ -85,7 +85,8 @@
                                     <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                @Html.Partial("TimerPartial")
+                                                @RenderSection("_Timer", required: false)
+                                               
                                             </div>
                                         </div>
                                     </nav>
