@@ -1,10 +1,17 @@
-﻿body, html {
+﻿/*GENERAL LAYOUT*/
+body, html {
     margin: 10px;
     padding-top: 0px;
     font-family: Code;
     font-weight: normal;
     background-color: white;
 
+}
+hr {
+    width:150px;
+    align-content:center;
+    border-width:1px;
+    box-shadow: 0px 1px 0px white;
 }
 
 .bodywrapper {
@@ -77,10 +84,113 @@ h2 {
 p {
     font-size: 12px; 
 }
+/*DIV Styles*/
 
-/**/
+.oval-beneath {
+    width: 100px;
+    height: 20px;
+    border: 0px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px -3px 10px #e6e6e6;
+}
+
+.oval-bottom {
+    
+    width: 100px;
+    height: 20px;
+    border: 0px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px grey;
+    mix-blend-mode: multiply;
+}
+/*    .oval-bottom:hover {
+        width: 100px;
+        height: 20px;
+        border: 0px;
+        background-color:lightgray;
+        border-radius: 10px;
+        transition: background-color 0.5s ease;
+    }*/
+.oval-topsy {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    width: 100px;
+    height: 20px;
+    border-style: solid;
+    border-width: 0px;
+    border-color: white;
+    background-color: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 5px 5px grey;
+}
+/*    .oval-topsy:hover {
+        box-shadow: inset 0px 5px 5px #727272;
+        transition: box-shadow 1s ease;
+    }*/
+
+.oval-topsy-solid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    height: 16px;
+    vertical-align: middle;
+    justify-content: left;
+    border-style: solid;
+    border-width: 0px;
+    border-color: white;
+    background-color: white;
+    border-radius: 10px;
+}
+.oval-topsy-solid-round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5px;
+    height: 5px;
+    vertical-align: middle;
+    justify-content: left;
+    border-style: solid;
+    border-width: 0px;
+    border-color: white;
+    background-color: black;
+    border-radius: 10px;
+    position: absolute;
+    animation: moveEye 5s linear infinite alternate;
+}
+    @keyframes moveEye {
+        0% {
+            transform: translateX(10px);
+        }
+
+        100% {
+            transform: translateX(80px);
+        }
+    }
+
+
+.oval-topsy-solid-round:hover {
+    position: absolute;
+    animation: moveEye 0.5s ease infinite alternate;
+}
+
+
+/*NavbarLinks*/
+
+.nav-linkNAVBAR {
+    display: table;
+    height: 40px;
+    width: 100px;
+    #position: relative; /* ie hack */
+    overflow: hidden;
+    border: 1px solid red;
+    padding-top: 15px;
+}
+
 /*Button/DIV button styling*/
-
 .navbar-button {
     border: solid;
     margin-top: 5px;
@@ -88,6 +198,8 @@ p {
     border-width: 1px;
     border-color: #888;
     background-color: none;
+    vertical-align: middle;
+    justify-content: center;
     width: 100px;
     height: 40px;
     border-top-right-radius: 10px;
@@ -105,6 +217,11 @@ p {
         background-color: #888;
         color:white
     }
+    .navbar-button:after{
+        box-shadow: 3px 3px 0px #888;
+        background-color: #888;
+        color: white
+    }
     
 .navbar-button .nav-link {
     color: black;
@@ -116,18 +233,19 @@ p {
         color: black
     }
 
+    /*COLOR BUTTONS*/
 .Colors {
     border: hidden;
-    width: 1px;
+    width: 15px;
     height: 25px;
-    border-radius: 0%;
+    border-radius: 5px;
 }
 
-    .btn-BW{
-border:1px;
-width:20px;
-height:45px;
-border-top-right-radius:50%;
+.btn-BW {
+    border: hidden;
+    width: 15px;
+    height: 25px;
+    border-radius: 5px;
 }
 #btnFirst {
     background-color: mediumturquoise;

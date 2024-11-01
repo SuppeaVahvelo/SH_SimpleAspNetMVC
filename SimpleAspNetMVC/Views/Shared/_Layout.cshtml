@@ -17,6 +17,7 @@
 
         <main>
 
+
             <div class="bodywrapper">
 
                 <div class="containerwrapper" id="aa">
@@ -24,7 +25,24 @@
                     <div class="container">
                         <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                             <div class="row">
-                                <div class="col-md-12">
+
+                                <div class="col-md-6">
+                                    @*@Html.Partial("_Knobs")*@
+                                    <div class="oval-beneath">
+                                        <div class="oval-bottom">
+                                            <div class="oval-topsy">
+                                                <div class="oval-topsy-solid">
+                                                    <div class="oval-topsy-solid-round">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr />
+
                                     <button class="Colors" style="background-color:mediumturquoise" onclick="changeElementBackgroundColor('aa', '#ccffcc')"></button>
                                     <button class="Colors" style="background-color:yellow" onclick="changeElementBackgroundColor('aa', '#FFCB00')"></button>
                                     <button class="Colors" style="background-color:lightgreen" onclick="changeElementBackgroundColor('aa', '#35CB00')"></button>
@@ -48,7 +66,7 @@
                             </div>
                         </nav>
 
-                     
+
 
                         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
                             <div class="container">
@@ -60,9 +78,9 @@
 
                                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                                     <ul class="navbar-nav flex-grow-1">
-                                        <li><div class="navbar-button">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
-                                        <li><div class="navbar-button">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
-                                        <li><div class="navbar-button">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-linkNAVBAR" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-linkNAVBAR" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-linkNAVBAR" })</div></li>
                                     </ul>
                                     <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                                         <div class="row">
@@ -107,8 +125,6 @@
         </main>
 
         @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
 
         <script>
             function changeElementBackgroundColor(id, color) {
@@ -117,6 +133,7 @@
                     element.style.backgroundColor = color;
                 }
             }
+
 
             /*Content div transition function */
 
@@ -128,10 +145,11 @@
                     content.classList.add("visible");
                 }
             }
-            /*AJAX request for the partial view*/
+
+            /*AJAX request for the partial view load, Update part of the page, inject partial view to the RenderBody*/
 
             $(document).ready(function () {
-                $(".nav-link").click(function (event) {
+                $(".nav-linkNAVBAR").click(function (event) {
                     event.preventDefault();
                     var url = $(this).attr("href");
                     $.get(url, function (response) {
@@ -144,6 +162,10 @@
                 });
             });
         </script>
+
+
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 
     </body>
 </html>

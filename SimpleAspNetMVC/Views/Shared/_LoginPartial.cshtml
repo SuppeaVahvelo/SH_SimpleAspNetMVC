@@ -1,9 +1,11 @@
 ﻿@*@{
-    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
-}
-@Styles.Render("~/Content/Site.css")*@
+        Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+    }
+    @Styles.Render("~/Content/Site.css")*@
 
 @using Microsoft.AspNet.Identity
+
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -11,11 +13,13 @@
         @Html.AntiForgeryToken()
 
         <ul class="navbar-nav navbar-right">
-            <li>
-                <div class="navbar-button">@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })</div>
 
+
+            <li>
                 <div>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })</div>
             </li>
+
+
             <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
     }
@@ -27,3 +31,6 @@ else
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
     </ul>
 }
+
+}
+
