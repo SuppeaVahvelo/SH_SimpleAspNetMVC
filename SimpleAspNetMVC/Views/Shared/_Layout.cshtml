@@ -25,8 +25,9 @@
                     <div class="container">
                         <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                             <div class="row">
-                                <div class="col-md-12">
 
+                                <div class="col-md-6">
+                                    @*@Html.Partial("_Knobs")*@
                                     <div class="oval-beneath">
                                         <div class="oval-bottom">
                                             <div class="oval-topsy">
@@ -37,20 +38,6 @@
 
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <hr />
-
-
-                                    <hr />
-
-                                    <div class="clock">
-                                        <div class="dial hours" id="hours-dial">
-                                            <div class="dial-handle" id="hours-handle"></div>
-                                        </div>
-                                        <div class="dial minutes" id="minutes-dial">
-                                            <div class="dial-handle" id="minutes-handle"></div>
                                         </div>
                                     </div>
 
@@ -79,7 +66,7 @@
                             </div>
                         </nav>
 
-                     
+
 
                         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
                             <div class="container">
@@ -91,9 +78,9 @@
 
                                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                                     <ul class="navbar-nav flex-grow-1">
-                                        <li><div class="navbar-button">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
-                                        <li><div class="navbar-button">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
-                                        <li><div class="navbar-button">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-linkNAVBAR" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-linkNAVBAR" })</div></li>
+                                        <li><div class="navbar-button">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-linkNAVBAR" })</div></li>
                                     </ul>
                                     <nav class="navbar navbar-expand-md navbar-toggleable-sm">
                                         <div class="row">
@@ -138,8 +125,6 @@
         </main>
 
         @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
 
         <script>
             function changeElementBackgroundColor(id, color) {
@@ -149,50 +134,6 @@
                 }
             }
 
-
-            /*DIAL*/
-
-            document.getElementById('dial-handle').addEventListener('mousedown', function (event) {
-                let isDragging = false;
-
-                const dial = document.getElementById('dial');
-                const handle = document.getElementById('dial-handle');
-
-                dial.addEventListener('mousedown', function () {
-                    isDragging = true;
-                });
-
-                document.addEventListener('mouseup', function () {
-                    isDragging = false;
-                });
-
-                document.addEventListener('mousemove', function (event) {
-                    if (isDragging) {
-                        const rect = dial.getBoundingClientRect();
-                        const centerX = rect.left + rect.width / 2;
-                        const centerY = rect.top + rect.height / 2;
-                        const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX) * (180 / Math.PI);
-                        handle.style.transform = `rotate(${angle}deg)`;
-                    }
-                });
-            });
-
-
-            /*SLIDER*/
-
-            document.getElementById('sliderControl').addEventListener('input', function () {
-                var value = this.value;
-                var sliderTrack = document.getElementById('slider-track');
-                var maxTranslateX = 300 * 2; // Total width of all slides minus one slide
-                var translateX = (maxTranslateX * value) / 100;
-                sliderTrack.style.transform = 'translateX(-' + translateX + 'px)';
-            });
-
-            document.getElementById('speedControl').addEventListener('input', function () {
-                var speed = this.value;
-                var sliderTrack = document.getElementById('slider-track');
-                sliderTrack.style.transitionDuration = (1 / speed) + 's'; // Adjusts speed
-            });
 
             /*Content div transition function */
 
@@ -204,10 +145,11 @@
                     content.classList.add("visible");
                 }
             }
-            /*AJAX request for the partial view*/
+
+            /*AJAX request for the partial view load, Update part of the page, inject partial view to the RenderBody*/
 
             $(document).ready(function () {
-                $(".nav-link").click(function (event) {
+                $(".nav-linkNAVBAR").click(function (event) {
                     event.preventDefault();
                     var url = $(this).attr("href");
                     $.get(url, function (response) {
@@ -220,6 +162,10 @@
                 });
             });
         </script>
+
+
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 
     </body>
 </html>
