@@ -184,7 +184,7 @@ p {
     display: table;
     height: 40px;
     width: 100px;
-    #position: relative; /* ie hack */
+    /*#position: relative;*/ /* ie hack */
     overflow: hidden;
     border: 1px solid red;
     padding-top: 15px;
